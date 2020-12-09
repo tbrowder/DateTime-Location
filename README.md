@@ -1,19 +1,19 @@
 NAME
 ====
 
-Geo::Location - blah blah blah
+DateTime::Location - blah blah blah
 
 SYNOPSIS
 ========
 
 ```raku
-use Geo::Location;
+use DateTime::Location;
 ```
 
 DESCRIPTION
 ===========
 
-Geo::Location is ...
+DateTime::Location is ...
 
 AUTHOR
 ======

@@ -1,5 +1,5 @@
 use Test;
-use Geo::Location;
+use DateTime::Location;
 
 pass "replace me";
 

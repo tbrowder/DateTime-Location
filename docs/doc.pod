@@ -1,23 +1,20 @@
-unit class Geo::Location:ver<0.0.1>:auth<cpan:TBROWDER>;
-
-
 =begin pod
 
 =head1 NAME
 
-Geo::Location - blah blah blah
+DateTime::Location - blah blah blah
 
 =head1 SYNOPSIS
 
 =begin code :lang<raku>
 
-use Geo::Location;
+use DateTime::Location;
 
 =end code
 
 =head1 DESCRIPTION
 
-Geo::Location is ...
+DateTime::Location is ...
 
 =head1 AUTHOR
 
