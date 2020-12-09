@@ -1,0 +1,6 @@
+use Test;
+use Geo::Location;
+
+pass "replace me";
+
+done-testing;
