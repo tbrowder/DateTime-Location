@@ -6,10 +6,11 @@ has $.state;
 has $.country;   # two-char ISO code
 has $.region;    # EU, etc., multi-country area with DST rules
 has $.timezone;  # non-DST number of seconds from GMT, same definition as used by DateTime
-has $.lat;
-has $.lon;
+has $.lat;       # decimal degrees +north, -south
+has $.lon;       # decimal degrees +east, -west
 
-# DST info which must be calculate according to rules by country, state, or region
+# DST info which must be calculated according to rules by country, state, or region.
+# See the methods below.
 has $.dst-start;
 has $.dst-end;
 
