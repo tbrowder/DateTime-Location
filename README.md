@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/tbrowder/DateTime-Location/workflows/test/badge.svg)](https://github.com/tbrowder/DateTime-Location/actions)
+
 NAME
 ====
 
