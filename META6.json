@@ -9,10 +9,10 @@
   ],
   "description": "blah blah blah",
   "license": "Artistic-2.0",
-  "name": "Geo::Location",
+  "name": "DateTime::Location",
   "perl": "6.d",
   "provides": {
-    "Geo::Location": "lib/Geo/Location.rakumod"
+    "DateTime::Location": "lib/DateTime/Location.rakumod"
   },
   "resources": [
   ],
