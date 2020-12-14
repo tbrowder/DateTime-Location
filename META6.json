@@ -7,7 +7,7 @@
   ],
   "depends": [
   ],
-  "description": "blah blah blah",
+  "description": "Provides location and time data primarily for astronomical programs",
   "license": "Artistic-2.0",
   "name": "DateTime::Location",
   "perl": "6.d",
