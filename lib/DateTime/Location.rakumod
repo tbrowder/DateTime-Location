@@ -119,6 +119,8 @@ method !check-lat-lon($lat is copy, $lon is copy) {
     my $ret-val = 0;
     my $err     = 0;
 
+    # try all combos
+
     return $ret-val, $err;
 }
 
