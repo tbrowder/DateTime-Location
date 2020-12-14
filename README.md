@@ -5,6 +5,11 @@ NAME
 
 `DateTime::Location` - Provides location and time data primarily for astronomical programs
 
+TEMPORARY DISCLAIMER
+====================
+
+`DateTime::Location` is a Work in Progress (WIP). Please file an issue if there are any features you want added. Bug reports (issues) are always welcome.
+
 SYNOPSIS
 ========
 
@@ -21,10 +26,10 @@ lat: ?, lon: ?
 DESCRIPTION
 ===========
 
-`DateTime::Location` is a Work in Progress (WIP)
+`DateTime::Location` Provides location and time data primarily for astronomical programs.
 
-See also by the same author
-===========================
+See also related modules by the same author:
+============================================
 
   * [`Astro::Almanac`](https://github.com/tbrowder/Astro-Almanac)
 

@@ -4,6 +4,12 @@
 
 C<DateTime::Location> - Provides location and time data primarily for astronomical programs
 
+=head1 TEMPORARY DISCLAIMER
+
+C<DateTime::Location> is a Work in Progress (WIP). Please file an issue if there
+are any features you want added. Bug reports (issues) are always
+welcome.
+
 =head1 SYNOPSIS
 
 =begin code :lang<raku>
@@ -18,9 +24,10 @@ lat: ?, lon: ?
 
 =head1 DESCRIPTION
 
-C<DateTime::Location> is a Work in Progress (WIP)
+C<DateTime::Location> Provides location and time data primarily for
+astronomical programs.
 
-=head1 See also by the same author
+=head1 See also related modules by the same author:
 
 =item L<C<Astro::Almanac>|https://github.com/tbrowder/Astro-Almanac>
 =item L<C<Calendar>|https://github.com/tbrowder/Calendar>
