@@ -3,7 +3,7 @@
 NAME
 ====
 
-DateTime::Location - Provides location and time data primarily for astronomical programs
+`DateTime::Location` - Provides location and time data primarily for astronomical programs
 
 SYNOPSIS
 ========
@@ -23,12 +23,12 @@ DESCRIPTION
 
 `DateTime::Location` is a Work in Progress (WIP)
 
-See also
-========
+See also by the same author
+===========================
 
-  * `Astro::Almanac`
+  * [`Astro::Almanac`](https://github.com/tbrowder/Astro-Almanac)
 
-  * `Calender`
+  * [`Calendar`](https://github.com/tbrowder/Calendar)
 
 AUTHOR
 ======
