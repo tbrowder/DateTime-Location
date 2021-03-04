@@ -20,7 +20,7 @@ $ raku
 > say $loc.name;
 Niceville, FL, USA
 > say $loc.location;
-lat: ?, lon: ?
+lat: 30.485092, lon: -86.4376157
 ```
 
 DESCRIPTION
