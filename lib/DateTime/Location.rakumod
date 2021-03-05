@@ -1,18 +1,24 @@
 unit class DateTime::Location:ver<0.0.1>:auth<cpan:TBROWDER>;
 
-# at least one these two attributes must be defined:
-has $.name;      # a convenient display name
-has $.id;        # a unique id in a collection
+# at least one of these two attributes must be defined:
+has $.name     = "Niceville, FL, USA";  # a convenient display name
+has $.id       = 0;                     # a unique id in a collection
 # three more mandatory attributes:
-has $.lat;       # decimal degrees: +north, -south
-has $.lon;       # decimal degrees: +east, -west
-has $.timezone;  # non-DST number of hours offset from GMT (+east, -west), may be a decimal fraction
+has $.lat      =  30.485092;            # decimal degrees: +north, -south
+has $.lon      = -86.4376157;           # decimal degrees: +east, -west
+
+has $.timezone = -6; # CST              # non-DST number of hours
+                                        # offset from GMT (+east,
+                                        # -west), may be a decimal
+                                        # fraction
+has $.tz       = -6; #    the number (isdst=False)
+has $.isdst    = 0;  # dynamically determined
 
 # optional attributes:
-has $.city;
-has $.state;     # two-letter ISO code
-has $.county;
-has $.country;   # two-char ISO code
+has $.city    = "Niceville";
+has $.state   = "FL";     # two-letter ISO code
+has $.county  = "Okaloosa";
+has $.country = "US";   # two-char ISO code
 has $.region;    # EU, etc., multi-country area with DST rules
 has $.notes;
 
@@ -21,12 +27,13 @@ has $.notes;
 has $.dst-start;
 has $.dst-end;
 
-# The Daylight Saving Time (DST) values will have to be calculated depending
-# on the rules for the area. 
+
+# The Daylight Saving Time (DST) values will have to be calculated
+# depending on the rules for the area.
 
 # In the US the rules by law are:
 
-# In the EU the rules according 
+# In the EU the rules according
 # to Wikipedia are:
 
 submethod TWEAK {
@@ -49,6 +56,7 @@ submethod TWEAK {
         ++$err;
         $msg ~= " \$lat is not defined\n";
     }
+
     if not $!lon.defined {
         ++$err;
         $msg ~= " \$lon is not defined\n";
@@ -61,7 +69,7 @@ submethod TWEAK {
     if $err {
         die $msg;
     }
- 
+
     # additional error handling and setup
     $err = 0;
     $msg = "FATAL:\n";
@@ -75,7 +83,7 @@ submethod TWEAK {
 
     # handle and validate the timezone entry
     # it can be a decimal or a recognized code
-    my $tz = $!timezone; 
+    my $tz = $!timezone;
     if $tz ~~ Num {
         if $tz > 12 {
             ++$err;
@@ -136,6 +144,79 @@ method !check-tz-code(Str $tz is copy) {
     return $ret-val, $err;
 }
 
-method city($city) {
+method lat-dms(:$debug --> Str) {
+    # Returns the latitude in DMS format
+    my $lat-sym = $.lat >= 0 ?? 'N' !! 'S';
+    my $lat-deg = $.lat.truncate.abs;
+    my $lat-deg-frac = $.lat.abs - $lat-deg;
+
+    my $lat-min = ($lat-deg-frac * 60.0).round;
+    my $lat-min-frac = $lat-deg-frac * 60 - $lat-min;
+
+    my $lat-sec = ($lat-min-frac * 60.0).round;
+    return "{$lat-sym}{$lat-deg}d{$lat-min}m{$lat-sec}s";
+}
+
+method lon-dms(:$debug --> Str) {
+    # Returns the longitude in DMS format
+    my $lon-sym = $.lon >= 0 ?? 'E' !! 'W';
+    my $lon-deg = $.lon.truncate.abs;
+    my $lon-deg-frac = $.lon.abs - $lon-deg;
+
+    my $lon-min = ($lon-deg-frac * 60.0).round;
+    my $lon-min-frac = $lon-deg-frac * 60 - $lon-min;
+
+    my $lon-sec = ($lon-min-frac * 60.0).round;
+    return "{$lon-sym}{$lon-deg}d{$lon-min}m{$lon-sec}s";
+}
+
+method riseset-format(:$debug --> Str) {
+    # Returns the format required by the Perl program 'riseset.pl' in
+    # CPAN Perl module 'Astro::Montenbruck::RiseSet::RST':
+    #
+    #   ./script/riseset.pl --place=56N26 37E09 --twilight=civil
+
+    my $lat-sym = $.lat >= 0 ?? 'N' !! 'S';
+    my $lon-sym = $.lon >= 0 ?? 'E' !! 'W';
+
+    my $lat-deg = $.lat.truncate.abs;
+    my $lon-deg = $.lon.truncate.abs;
+
+    my $lat-min = (($.lat.abs - $lat-deg).abs * 60.0).round;
+    my $lon-min = (($.lon.abs - $lon-deg).abs * 60.0).round;
+
+    my $place = "{$lat-deg}{$lat-sym}{$lat-min} {$lon-deg}{$lon-sym}{$lon-min}";
+    if 0 or $debug {
+        note qq:to/HERE/;
+        DEBUG:
+        lat = {$.lat}
+          lat-deg = {$lat-deg}
+          lat-min = {$lat-min}
+
+        lon = {$.lon}
+          lon-deg = {$lon-deg}
+          lon-min = {$lon-min}
+
+        place: '{$place}'
+        HERE
+    }
+    return $place;
+}
+
+sub convert-lat($lat) is export(:convert-lat) {
+}
+
+sub convert-lon($lon) is export(:convert-lon) {
+
+}
+
+method location(:$format = 'decimal') {
+    if $format ~~ /deg|h/ {
+        return "lat: {self.lat-dms}, lon: {self.lon-dms}"
+    }
+    else {
+        return "lat: {self.lat}, lon: {self.lon}"
+        #say "TODO: lat/lon in deg/min/sec";
+    }
 }
 

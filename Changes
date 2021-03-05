@@ -1,6 +1,10 @@
 Revision history for DateTime-Location
 
 {{$NEXT}}
+    - Added real tests
+    - Added a default location
+    - Enabled DMS as well as decimal latitude and longitude formats
+    - Provided a conversion routine for DMS to/from decimal latitude and longitude formatsi
 
 0.0.1  2020-12-14T11:00:18-06:00
     - Initial version
