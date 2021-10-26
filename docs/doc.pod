@@ -4,7 +4,12 @@
 
 C<DateTime::Location> - Provides location and time data primarily for astronomical programs
 
-=head1 TEMPORARY DISCLAIMER
+=head1 WARNING - THIS MODULE IS OBSOLETE AND HAS BEEN REMOVED FROM CPAN
+
+It has been broken into two new modules which are much improved:
+
+=item B<DateTime::US>
+=item B<Geo::Location>
 
 C<DateTime::Location> is a Work in Progress (WIP). Please file an issue if there
 are any features you want added. Bug reports (issues) are always

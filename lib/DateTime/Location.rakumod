@@ -115,7 +115,6 @@ submethod TWEAK {
     # handle and validate the lat/lon entries
     my ($ret, $e) = self!check-lat-lon($!lat, $!lon);
 
-
     # any more errors?
     if $err {
         die $msg;

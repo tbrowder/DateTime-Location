@@ -5,8 +5,14 @@ NAME
 
 `DateTime::Location` - Provides location and time data primarily for astronomical programs
 
-TEMPORARY DISCLAIMER
-====================
+WARNING - THIS MODULE IS OBSOLETE AND HAS BEEN REMOVED FROM CPAN
+================================================================
+
+It has been broken into two new modules which are much improved:
+
+  * **DateTime::US**
+
+  * **Geo::Location**
 
 `DateTime::Location` is a Work in Progress (WIP). Please file an issue if there are any features you want added. Bug reports (issues) are always welcome.
 
